@@ -24,7 +24,6 @@ function redrawMeme(image, topLine, bottomLine) {
     canvasContext.fillStyle = 'white';
 
     const drawMargin = canvas.height / 11;
-    console.log(`botom is ${bottomLine} and ${topLine}`);
 
     if (topLine != null && (topLine.length > 0)) {
         canvasContext.fillText(topLine, canvas.width / 2, drawMargin);
@@ -44,8 +43,6 @@ function loadImage(src) {
     image.onload = () => {
         canvas.width = image.width;
         canvas.height = image.height;
-        console.log(canvas.width);
-        console.log("Image 2 loaded!");
         redrawMeme(image, window.topLineText, window.bottomLineText);
     }
 }
@@ -84,8 +81,6 @@ function handleFileSelect(evt) {
 
         // Create an image object
         loadImage(data);
-        console.log(fileObject.target.result);
-        console.log(fileObject.target.result);
     };
     reader.readAsDataURL(file);
 }
