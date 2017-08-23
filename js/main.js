@@ -1,3 +1,30 @@
+////Model
+//
+const memesList = [
+    {
+        name:"One does not Simply",
+        img:"img/memes/One-Does-Not-Simply.jpg"
+    },
+    {
+        name:"Philosoraptor",
+        img:"img/memes/philosoraptor.jpg"
+    },
+    {
+        name:"Success-kid",
+        img:"img/memes/Success-kid.jpg"
+    },
+    {
+        name:"Waiting-Skeleton",
+        img:"img/memes/Waiting-Skeleton.jpg"
+    },
+]
+
+//
+const model = {
+    isMemesAreaVisble : false,
+    memesList
+}
+
 ////
 //Canvas
 const canvas = document.getElementById("canvas");
@@ -60,14 +87,23 @@ bottomLineInput.addEventListener("input", textChangeListener);
 uploadInput.addEventListener("change", handleFileSelect);
 selectBtn.addEventListener("click", formToggleListener);
 
-var isMemeListVisble = false;
+
 
 //Event callbacks
 //
 function formToggleListener(evt) {
-    if (memeListVisble){
-
+    if (!model.isMemesAreaVisble){
+        memesArea.classList.remove("hidden");
+        form.classList.add("hidden");
+        selectBtn.innerText = "Type a Text"
+        model.isMemesAreaVisble = true;
+        return;
     }
+
+    memesArea.classList.add("hidden");
+    form.classList.remove("hidden");
+    selectBtn.innerText = "Select a Meme"
+    model.isMemesAreaVisble = false;
 }
 
 //
@@ -96,4 +132,10 @@ function handleFileSelect(evt) {
         loadImage(data);
     };
     reader.readAsDataURL(file);
+}
+
+////View functions
+//
+function loadMemesArea(){
+
 }
