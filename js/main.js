@@ -6,6 +6,9 @@ const canvasContext = canvas.getContext("2d");
 const topLineInput = document.getElementById("topLineText");
 const bottomLineInput = document.getElementById("bottomLineText");
 const uploadInput = document.getElementById("upload");
+const selectBtn = document.getElementById("selectBtn");
+const form = document.getElementById("form");
+const memesArea = document.getElementById("memesArea");
 //
 const image = new Image();
 window.image = image;
@@ -23,7 +26,7 @@ function redrawMeme(image, topLine, bottomLine) {
     canvasContext.lineWidth = (canvas.width / 400);
     canvasContext.fillStyle = 'white';
 
-    const drawMargin = canvas.height / 11;
+    const drawMargin = canvas.height / 10;
 
     if (topLine != null && (topLine.length > 0)) {
         canvasContext.fillText(topLine, canvas.width / 2, drawMargin);
@@ -31,8 +34,8 @@ function redrawMeme(image, topLine, bottomLine) {
     }
 
     if (bottomLine != null && bottomLine.length > 0) {
-        canvasContext.fillText(bottomLine, canvas.width / 2, canvas.height - drawMargin);
-        canvasContext.strokeText(bottomLine, canvas.width / 2, canvas.height - drawMargin);
+        canvasContext.fillText(bottomLine, canvas.width / 2, canvas.height - drawMargin / 2);
+        canvasContext.strokeText(bottomLine, canvas.width / 2, canvas.height - drawMargin / 2);
     }
 }
 
@@ -55,8 +58,18 @@ loadImage("img/milo-mcdowell-3027.jpg");
 topLineInput.addEventListener("input", textChangeListener);
 bottomLineInput.addEventListener("input", textChangeListener);
 uploadInput.addEventListener("change", handleFileSelect);
+selectBtn.addEventListener("click", formToggleListener);
+
+var isMemeListVisble = false;
 
 //Event callbacks
+//
+function formToggleListener(evt) {
+    if (memeListVisble){
+
+    }
+}
+
 //
 function textChangeListener(evt) {
     var id = evt.target.id;

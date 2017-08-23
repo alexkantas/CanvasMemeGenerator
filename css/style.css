@@ -37,8 +37,13 @@ main{
     align-items: flex-start;
     justify-content: center;
     margin-top: 1em;
+    padding: 1em;
     height: 85vh;
     overflow: hidden;
+}
+
+main > * {
+    max-height: 80vh;
 }
 
 .icon{
@@ -53,11 +58,18 @@ main{
     font-weight: 300;
 }
 
+.canvasContainer{
+    padding: 1em;
+    margin: auto;
+    flex: 2;
+}
+
 #canvas{
-    border: 2px solid #363650;
+    border: 0.5em solid #055450;
     max-width: 100%;
     max-height: 100%;
-    margin: 1em;
+    display: block;
+    margin: auto;
 }
 
 .form{
@@ -67,6 +79,8 @@ main{
     font-weight: 600;
     font-size: 1.4em;
     margin: 1em 0;
+    padding: 2em;
+    flex: 1;
     
 }
 
@@ -82,6 +96,34 @@ main{
     margin-top: 2em;
     font-style: italic;
 }
+
+.memesArea{
+    display: grid;
+    list-style: none;
+    margin: 0;
+    padding: 2em;
+    grid-template-columns: 50% 50%;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.memesArea > li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    border: 1px dashed #54250D;
+}
+
+.memesArea > li > img{
+    max-width: 100%;
+    margin: auto;
+}
+
+.hidden{
+    display: none;
+}
+
 
 /* Animations */
 @keyframes fadeIn {
