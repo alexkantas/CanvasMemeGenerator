@@ -2,26 +2,34 @@
 //
 const memesList = [
     {
-        name:"One does not Simply",
-        img:"img/memes/One-Does-Not-Simply.jpg"
+        name: "One does not Simply",
+        image: "img/memes/One-Does-Not-Simply.jpg"
     },
     {
-        name:"Philosoraptor",
-        img:"img/memes/philosoraptor.jpg"
+        name: "Philosoraptor",
+        image: "img/memes/philosoraptor.jpg"
     },
     {
-        name:"Success-kid",
-        img:"img/memes/Success-kid.jpg"
+        name: "Success-kid",
+        image: "img/memes/Success-kid.jpg"
     },
     {
-        name:"Waiting-Skeleton",
-        img:"img/memes/Waiting-Skeleton.jpg"
+        name: "Waiting-Skeleton",
+        image: "https://imgflip.com/s/meme/Leonardo-Dicaprio-Cheers.jpg"
     },
+    {
+        name: "Waiting-Skeleton",
+        image: "https://media2.giphy.com/media/3og0IvBim73ZRmR4ti/200_s.gif"
+    },
+    {
+        name: "Roll Safe",
+        image: "https://www.wykop.pl/cdn/c3201142/comment_rV3spwj5LGbPbZ5m0CWnqKLWPPCRkt8m.jpg"
+    }
 ]
 
 //
 const model = {
-    isMemesAreaVisble : false,
+    isMemesAreaVisble: false,
     memesList
 }
 
@@ -91,8 +99,8 @@ selectBtn.addEventListener("click", formToggleListener);
 
 //Event callbacks
 //
-function formToggleListener(evt) {
-    if (!model.isMemesAreaVisble){
+function formToggleListener() {
+    if (!model.isMemesAreaVisble) {
         memesArea.classList.remove("hidden");
         form.classList.add("hidden");
         selectBtn.innerText = "Type a Text"
@@ -108,8 +116,8 @@ function formToggleListener(evt) {
 
 //
 function textChangeListener(evt) {
-    var id = evt.target.id;
-    var text = evt.target.value;
+    const id = evt.target.id;
+    const text = evt.target.value;
 
     if (id == "topLineText") {
         window.topLineText = text;
@@ -134,8 +142,23 @@ function handleFileSelect(evt) {
     reader.readAsDataURL(file);
 }
 
+//
+function memeClickListener(evt){
+    const image = evt.target.src;
+    loadImage(image);
+    formToggleListener();
+    topLineInput.focus();
+    topLineInput.select();
+}
+
 ////View functions
 //
-function loadMemesArea(){
-
-}
+(function loadMemesArea() {
+    model.memesList.forEach(meme => {
+        const memeElementTemplate = `<li><img src="${meme.image}" alt="${meme.name} image" title="${meme.name}"></li>`;
+        // memesArea.insertAdjacentHTML("beforeend", memeElement);
+        const memeElementDOM = new DOMParser().parseFromString(memeElementTemplate, "text/html").documentElement.lastChild.firstElementChild;
+        memeElementDOM.addEventListener("click",memeClickListener);
+        memesArea.appendChild(memeElementDOM);
+    })
+})()
