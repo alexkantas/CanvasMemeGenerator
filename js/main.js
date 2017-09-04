@@ -11,7 +11,7 @@ const memesList = [
     },
     {
         name: "Success-kid",
-        image: "img/memes/Success-kid.jpg"
+        image: "img/memes/Success-Kid.jpg"
     },
     {
         name: "Waiting-Skeleton",
