@@ -34,6 +34,25 @@ html,body{
     width: 5em;
 }
 
+footer .memeButton{
+    right: 2vw;
+    padding: 1em;
+    font-family: inherit;
+    background: #a15229;
+    color: white;
+    outline: none;
+}
+
+.floatItem{
+    position: fixed;
+    bottom: 2vh;
+    background: #fff;
+    font-weight: 300;
+}
+
+.copyright{
+    left:2vw;
+}
 
 main{
     display: flex;
@@ -51,14 +70,6 @@ main > * {
 
 .icon{
     height: 1em;
-}
-
-.copyright{
-    position: fixed;
-    right: 2vw;
-    bottom: 2vh;
-    background: #fff;
-    font-weight: 300;
 }
 
 .canvasContainer{
@@ -141,24 +152,29 @@ main > * {
 }
 
 /* Media Queries */
-@media screen and (max-width: 615px) {
-    body {
-        background-color: lightgreen;
-    }
+@media screen and (max-width: 768px) {
 
     #topBar{
         flex-direction: column;
-        height: 20vh;
+    }
+
+    #topBar nav{
+        display: none;
     }
 
     main{
         flex-direction: column;
+        justify-content: flex-start;
     }
 
     main > *{
         max-height: 50vh;
-        flex:none !important;
+        flex-basis: 2em !important;
         padding: 0 !important;
+    }
+
+    .canvasContainer{
+        flex: 1;
     }
 
     .form{

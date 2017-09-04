@@ -42,6 +42,7 @@ const topLineInput = document.getElementById("topLineText");
 const bottomLineInput = document.getElementById("bottomLineText");
 const uploadInput = document.getElementById("upload");
 const selectBtn = document.getElementById("selectBtn");
+const selectBtnBottom = document.getElementById("selectBtnBottom");
 const form = document.getElementById("form");
 const memesArea = document.getElementById("memesArea");
 //
@@ -94,7 +95,7 @@ topLineInput.addEventListener("input", textChangeListener);
 bottomLineInput.addEventListener("input", textChangeListener);
 uploadInput.addEventListener("change", handleFileSelect);
 selectBtn.addEventListener("click", formToggleListener);
-
+selectBtnBottom.addEventListener("click", formToggleListener);
 
 
 //Event callbacks
@@ -103,14 +104,14 @@ function formToggleListener() {
     if (!model.isMemesAreaVisble) {
         memesArea.classList.remove("hidden");
         form.classList.add("hidden");
-        selectBtn.innerText = "Type a Text"
+        selectBtn.innerText = selectBtnBottom.innerText = "Type a Text"
         model.isMemesAreaVisble = true;
         return;
     }
 
     memesArea.classList.add("hidden");
     form.classList.remove("hidden");
-    selectBtn.innerText = "Select a Meme"
+    selectBtn.innerText = selectBtnBottom.innerText = "Select a Meme"
     model.isMemesAreaVisble = false;
 }
 
